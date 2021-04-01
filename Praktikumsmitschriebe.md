@@ -44,3 +44,9 @@ Firmenpräsentation überarbeitet (PP vertieft)
 - Haus und Klo- Auftrag verfeinert in der ersten Hälfte
 - Ab Mittwoch Umzug
 - Größtenteils verräumen helfen, zu neuem Standort fahren und dort einräumen
+
+## Woche 5
+
+- Im neuen Büro ankommen
+- Haus und Klo weitergearbeitet und dann abgenommen
+- über geplante Entwicklung der nächsten Jahre im Bereich Development informiert, welche Techniken eignesetzt werden
