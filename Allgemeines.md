@@ -1,5 +1,18 @@
 # Allgemeines
 
+## Auf C# 9.0 ändern
+
+- in der .csproj Datei:
+
+  ```xaml
+  <PropertyGroup>
+      ...
+      <LangVersion>preview</LangVersion>
+    </PropertyGroup>
+  ```
+
+  
+
 ## Neue View erstellen
 
 1. Neue View und ViewModel erstellen
