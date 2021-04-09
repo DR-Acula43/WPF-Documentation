@@ -50,3 +50,11 @@ Firmenpräsentation überarbeitet (PP vertieft)
 - Im neuen Büro ankommen
 - Haus und Klo weitergearbeitet und dann abgenommen
 - über geplante Entwicklung der nächsten Jahre im Bereich Development informiert, welche Techniken eignesetzt werden
+
+## Woche 6
+- einige Aufgaben zum Recherchieren bekommen
+- über das Thema Services recherchiert und PoC implementiert
+- Ziel ist, dass man die WPF Applications auf verschiedenen Endgeräten einsetzen kann, nur die Services ändern muss
+- außerdem SQLite angeschaut
+- xUnit Testen angeschaut und dokumentiert, da bisher im Bereich Development noch keine richtigen Tests gemacht werden
+- das erste mal HomeOffice (Donn & Fr)
