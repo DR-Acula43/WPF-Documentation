@@ -11,7 +11,39 @@
   - Beim Schreiben der Tests denkt man schon über die Implementierung nach
   - Gute Tests geben gute Dokumentation
 
+### Beim Testen beachten
 
+- Vorteil ist nicht direkt zu spüren, nur indirekt
+
+- Konstruktiv: Fehler vermeiden, durch Auswählen richtiger Tools/ Prozesse, Kommunikation
+
+- Analytisch: Fehler finden, Testen 
+
+- Systematisch Testen:
+
+  - Mithilfe von Äquivalenzklassen (siehe unten) geeignete Stichproben wählen
+  - Randbedingungen erfassen (z.B. Umgebung, interagiert es mit anderen Klassen)
+  - Ergebnisse dokumentieren
+
+- Äquivalenzklassen:
+
+  - Annehmen, dass sich ähnliche Eingaben und Zustände ähnlich verhalten
+
+  - Beispiel Blitzer:
+
+  - ÄK 1: Erlaubtes Tempo: 1 - 50 km/h
+
+  - Äk 2: Toleranz: 51-55 km/h
+
+  - Äk 3: Überschreitung: >55 km/h
+
+  - ungültige Äk: <= 0 km/h
+
+  - -> jeder Wert in einer ÄK sollte sich gleich verhalten
+
+  - -> bei Randwertanalyse wählt man Anfang und Ende einer einer ÄK anstatt beliebigen Wert
+
+    
 
 ### Tests implementieren
 
