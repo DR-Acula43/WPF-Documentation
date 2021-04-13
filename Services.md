@@ -3,147 +3,49 @@
 - Services sind Komponenten die man in Programmen verwendet
 - Es gibt Interfaces, die vorgeben wie die Schnittstellen aussehen müssen, konkrete Implementierung kann dann von Technik zu Technik unterschiedlich aussehen
 
-### Interface von Service
+## Services implementieren
 
-```c#
-using System;
-using System.Collections.Generic;
-using System.Text;
-using WpfNetCoreMvvm.Models;
+- Im Folgenden wird gezeigt, wie man einen Service implementiert (hier in ein Projekt mit der Project Template *WPF MVVM App (.Net 5.0)*)
+- für den genauen, dokumentierten Code bitte in XXX schauen
 
-namespace WpfNetCoreMvvm.Services
-{
-   public interface IUsers
-    {
-        public List<User> getAllUsers();
-        public string getNameByID(int id);
-        public int getIDByName(string name);
-        public List<int> getAllGroupIDByUser(int id);
-        public void createUser(int id, string name);
-        public void deleteUser(int id);
-        public void updateUser(int id,string newName);
+### Service Interface erstellen
 
-    }
-}
-```
+- man erstellt ein Interface, das alle Methode hat die der Service später implementieren soll
+- *ISampleService.cs*
 
-### Implementierung des Interfaces (der eigentliche Service)
+### Service implementieren
 
-```c#
-namespace WpfNetCoreMvvm.Services
-{
-    public class Users : IUsers
-    {
+- diese Implementation sieht von Einsatzgebiet zu Einsatzgebiet anders aus und ist im Idealfall, die einzige Komponente, die ausgetauscht werden muss
+- *SampleService.cs*
 
-        public List<User> getAllUsers()
-        {...
-        }
+### MainViewModel
 
-        public int getIDByName(string name)
-        {...
-        }
+- wichtige Stellen im Code sind mit *//!!!* markiert
+- Service wird als Attribut der Klasse definiert und kann hier verwendet werden
+- *MainViewModel.cs*
 
-        public string getNameByID(int id)
-        {...
-        }
+### ViewModelLocator
 
-        public List<int> getAllGroupIDByUser(int id)
-        {...
-        }
+- wichtige Stellen im Code sind mit *//!!!* markiert
+- hier werden dem ViewModel die Services zugewiesen
+- *ViewModelLocator.cs*
 
-        public void createUser(int id, string name)
-        {...
-        }
+### App.xaml
 
-        public void deleteUser(int id)
-        {...
-        }
-        
-        public void updateUser(int id, string newName)
-        {...
-    }
-}
-```
+- nötige namespaces einbinden und ViewModelLocator definieren
+- *App.xaml*
 
-### In App.xaml.cs Service hinzufügen
+### App.xaml.cs
 
-```c#
- public static IServiceProvider ServiceProvider { get; private set; }
+- hier muss man alle Services registrieren
 
-        public App()
-        {
-            host = Host.CreateDefaultBuilder()  // Use default settings
-                                                //new HostBuilder()          // Initialize an empty HostBuilder
-                    .ConfigureAppConfiguration((context, builder) =>
-                    {
-                        // Add other configuration files...
-                        builder.AddJsonFile("appsettings.local.json", optional: true);
-                    }).ConfigureServices((context, services) =>
-                    {
-                        ConfigureServices(context.Configuration, services);
-                    })
-                    .ConfigureLogging(logging =>
-                    {
-                        // Add other loggers...
-                    })
-                    .Build();
+- Achtung! Bei dem verwendeten Template auch zusätzlich den *IFrameNavigationService* 
 
-            ServiceProvider = host.Services;
-        }
+- über NuGet-Paketmanager *Microsoft.Extensions.Hosting* importieren
 
-        private void ConfigureServices(IConfiguration configuration, IServiceCollection services)
-        {
-            services.Configure<AppSettings>(configuration.GetSection(nameof(AppSettings)));
-            services.AddScoped<ISampleService, SampleService>();
-            services.AddScoped<IGroupsService, GroupsService>();
+- wichtige Stellen im Code sind mit *//!!!* markiert
 
-            services.AddScoped<IUsers, Services.Users>();
+- *App.xaml.cs*
 
-            // Register all ViewModels.
-            services.AddSingleton<MainViewModel>();
-
-            // Register all the Windows of the applications.
-            services.AddTransient<MainWindow>();
-        }
-
-        protected override async void OnStartup(StartupEventArgs e)
-        {
-            await host.StartAsync();
-
-            var window = ServiceProvider.GetRequiredService<MainWindow>();
-            window.Show();
-
-            base.OnStartup(e);
-        }
-
-        protected override async void OnExit(ExitEventArgs e)
-        {
-            using (host)
-            {
-                await host.StopAsync(TimeSpan.FromSeconds(5));
-            }
-
-            base.OnExit(e);
-        }
-    }
-```
-
-
-
-### Im ViewModel Service Benutzen
-
-```c#
-public class MainViewModel : Microsoft.Toolkit.Mvvm.ComponentModel.ObservableObject, INotifyPropertyChanged
-    {
-        private readonly IUsers users;
-    
-         public MainViewModel(IOptions<AppSettings> options, IUsers users)
-        {      
-           this.users = users;
-             
-            users.createUser(11, "Dwight");     
-         }
-    ...
-}
-```
+  
 
