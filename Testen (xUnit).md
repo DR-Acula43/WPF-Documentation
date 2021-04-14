@@ -7,6 +7,7 @@
   - Repeatable (wiederholbar in beliebiger Umgebung, zB kein Zugang zu Internet notwendig)
   - Self-Validating (Test entweder grün der rot, muss man z.B. überprüfen ob Datei auch geschrieben wurde, verletzt es das S.)
   - Timely (vor oder mit dem Code schreiben)
+- ViewModels werden Testbar, indem Abhängigkeit abstrahiert werden
 - Vorteile von Tests:
   - Beim Schreiben der Tests denkt man schon über die Implementierung nach
   - Gute Tests geben gute Dokumentation
