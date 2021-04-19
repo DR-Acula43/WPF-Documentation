@@ -4,11 +4,11 @@
 
   -> [Dynamic Localization In WPF (c-sharpcorner.com)](https://www.c-sharpcorner.com/article/dynamic-localization-in-wpf/)
 
-- jede Seite hat hier ihre eigene Resourcendatei (übersichtlicher pro Datei, jedoch mehr Resourcendateien)
+- jede Seite hat hier ihre eigene Ressourcendatei (übersichtlicher pro Datei, jedoch mehr Ressourcendateien)
 
 - Beachten: 
 
-  - bei jeder neu hinzugefügten Resourcendatei Properties -> Build = Content & Copy = If Newer
+  - bei jeder neu hinzugefügten Ressourcendatei Properties -> Build = Content & Copy = If Newer
 
 ## Implementation
 
