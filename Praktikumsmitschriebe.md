@@ -30,7 +30,7 @@ Firmenpräsentation überarbeitet (PP vertieft)
 
 - kleinere WPF Projekte
 - mahapps Metro angefangen
-- mit kostenloser Variante telerik verglichen
+- mit kostenpflichtiger Variante telerik verglichen
 
 ## Woche 3
 
